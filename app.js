@@ -39,5 +39,5 @@ app.use(function(err, req, res, next) {
 });
 
 // heroku
-app.listen(process.env.peaceful-anchorage-33036);
+app.listen(process.env.PORT);
 module.exports = app;
