@@ -1,2 +1,15 @@
-input
-output
+CSV取り込み
+エクセル出力
+
+<!--　ローカルSQLログイン　-->
+psql -h localhost -p 5432 -U mushi -d mushi
+
+<!-- テーブル作成 -->
+CREATE TABLE SENTENCES (
+  ID char,
+  WORD text
+)
+
+<!-- INSRT -->
+INSERT INTO SENTENCES VALUES ('1', 'はじめまして');
+INSERT INTO SENTENCES VALUES ('8','aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
