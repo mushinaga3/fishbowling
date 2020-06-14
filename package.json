@@ -6,12 +6,17 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "blob": "^0.1.0",
     "cookie-parser": "~1.4.4",
+    "cross-blob": "^1.2.3",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "pg": "^8.2.1"
+    "officegen": "^0.6.4",
+    "pg": "^8.2.1",
+    "request": "^2.88.2",
+    "url": "^0.11.0"
   }
 }

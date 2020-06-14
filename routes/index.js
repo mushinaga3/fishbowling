@@ -13,34 +13,23 @@ const pool = new pg.Pool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  const select = 'SELECT word FROM SENTENCES';
-  pool.connect((err, client)=>{
-    client.query(select,(box, result)=>{
-      let boxs = [];
-      for (let i=0; i<result.rowCount; i++){
-        boxs = result.rows[i].word;
-        console.log(result.rows[i].word);
-        i+1;
-      }
-      res.render('index', {datas: 'txtファイルを選択してください'});
+    res.render('index',{
+      title: 'ファイルを表示する'
     });
-  });
 });
 
 router.post('/', (req, res, next) => {
   let filename = req.body.file;
   let text = fs.readFileSync(filename, 'utf8');
-  console.log(text)
-  pool.connect((err,client)=>{
-    client.query(text, (err,result)=>{
-      if(err){
-        console.log('失敗');
-        res.render('index', {datas: 'エラーが発生しました'});
-      } else {
-        console.log('成功');
-        res.render('index', {datas: '成功しました'});
-      }
-    });
+  console.log(text);
+  pool.query(text,(err)=>{
+    if(err){
+      console.log('失敗');
+      res.render('index', {title: 'エラーが発生しました'});
+    } else {
+      console.log('成功');
+      res.render('index', {title: '成功しました'});
+    }
   });
 });
 
