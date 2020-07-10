@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>fishbowling</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+  </head>
+  <body>
+    <form action="/login" method="post">
+      <%= err %>
+      <p>ID</p>
+      <input id="nameId" name="nameId" type="text"><br>
+      <p>password</p>
+      <input id="pass" name="pass" type="password"><br>
+      <button type="submit">送信</button>
+  </form>
+  <a href="/wordView">文章を作成する</a>
+  </body>
+</html>

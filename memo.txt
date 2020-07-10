@@ -1,0 +1,42 @@
+--①テーブル修正
+--②ランダムselect
+③タイトル重複禁止
+④INSERTデータ入力画面
+⑤ボタン押したらランダム生成される
+
+
+<!--　テーブル定義 -->
+テーブル名 COLLAGE
+・ID      ID ※重複不可
+・TITLE   タイトル ※無制限
+・WORD    文章    ※無制限
+
+<!-- テーブル作成 -->
+CREATE TABLE COLLAGE(
+  ID serial PRIMARY KEY NOT NULL,
+  TITLE text,
+  WORD text NOT NULL
+);
+
+CREATE TABLE ADMIN(
+  ID VARCHAR,
+  PASSWORD VARCHAR
+);
+
+<!-- INSRT -->
+INSERT INTO COLLAGE VALUES ('1', 'KISSのたびギュッとグッと', 'どうか君の気持ちまで戻してやってくれないか');
+INSERT INTO COLLAGE (TITLE, WORD) VALUES ('KISSのたびギュッとグッと', 'どうか君の気持ちまで戻してやってくれないか');
+INSERT INTO ADMIN (ID, PASSWORD) VALUES ('mushinaga', 'mushi37yoshinaga');
+INSERT INTO ADMIN (ID, PASSWORD) VALUES ('mushi', 'mushi');
+
+<!--　ローカルSQLログイン　-->
+psql -h localhost -p 5432 -U mushi -d mushi
+heroku pg:psql
+
+<!--　master マージ -->
+git checkout master
+git merge devleop
+git push origin master
+
+<!-- heroku -->
+git push heroku master
