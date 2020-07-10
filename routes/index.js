@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
     res.render('login',{
       err: ""
     });
-    console.log('margeするため');
   }
 });
 
