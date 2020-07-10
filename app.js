@@ -1,12 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+const session = require('express-session');
 
-var indexRouter = require('./routes/index');
-var wordView = require('./routes/wordView');
-var text = require('./routes/text');
+let indexRouter = require('./routes/index');
+let wordView = require('./routes/wordView');
+let text = require('./routes/text');
+let login = require('./routes/login');
 
 var app = express();
 
@@ -19,10 +21,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use('/', indexRouter);
 app.use('/wordView', wordView);
 app.use('/text', text);
+app.use('/login', login);
 
 // try catch 404 and forward to error handler
 // app.use(function(_req, res, next) {

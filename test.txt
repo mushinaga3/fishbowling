@@ -1,2 +1,1 @@
-INSERT INTO SENTENCES VALUES ('1', '本番テスト');
-INSERT INTO SENTENCES VALUES ('2', '２行目てすと');
+INSERT INTO COLLAGE (TITLE, WORD) VALUES ('瞳に吸い込まれてしまう','そういうとこがずるいよねええ');

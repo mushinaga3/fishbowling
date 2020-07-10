@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>fishboling</title>
+    <title>fishbowling</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <p><%= title %></p>
-    <% for (let i=0; i < boxs.length; i++) {%> 
-      <p><%= boxs[i].word %></p>
+    <% for (let i=0; i <= texts.length; i++) {%> 
+      <p><%= texts[i] %></p>
     <% } %>
-    <a href="/text" download="text.txt">ダウンロード(HTML5のdownload属性)</a><br>
+    <form action="/wordView" method="post">
+      <button type="submit"><%= btnText %></button>
+    </form>
+    <a href="/text" download="text.txt">ダウンロード</a><br>
     <a href="/">戻る</a>
-    <script>
-    </script>
   </body>
 </html>
